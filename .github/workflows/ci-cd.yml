@@ -49,10 +49,8 @@ jobs:
 
       # 5. СБОРКА И УПАКОВКА: Собираем Docker-образ
       - name: Build Docker image
-        run: docker build -t my-app:latest .
+        run: docker build -t ayzar2008/my-app:latest .
 
-      # 6. РАЗВЕРТЫВАНИЕ (в хранилище артефактов):
-      # Чтобы отправить образ в DockerHub, нужно добавить секреты в настройки GitHub!
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -60,4 +58,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image
-        run: docker push my-app:latest
+        run: docker push ayzar2008/my-app:latest
